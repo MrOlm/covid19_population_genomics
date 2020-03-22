@@ -24,12 +24,12 @@ The script `./interpatient/filter_seqs.py` will perform some quality checks on t
 
 This script then filters out viral genomes that are too divergent to represent accurate genomes from the 2019 SARS-CoV-2 pandemic. This second step requires the program `fastANI` be installed in your path. It compares all genomes to the reference SARS-CoV-2 (`./interpatient/reference.fna`) and removes those that are <99% nucleotide identity. 
 
-We then align the resulting filtered sequences using MAFFT - `mafft --thread 16 final_filtered_seqs.fna > mar20_filtered.aln` to generate a full genome alignment of the high quality viral genomes.
+We then align the resulting filtered sequences using MAFFT - `mafft --thread 16 mar20_filtered_seqs.fna > mar20_filtered.aln` to generate a full genome alignment of the high quality viral genomes.
 
 We generate a phylogenetic tree of these sequences using IQTree:
 
-`iqtree -nt 10 -s final_filtered.aln`
-and the generated tree is available in `./interpatient/mar20_filtered.aln.iqtree`.
+`iqtree -nt 10 -s mar20_filtered.aln`
+and the generated tree is available in `./interpatient/mar20_filtered.iqtree`.
 
 **The viral genome alignment is made available in `./interpatient/mar20_filtered.aln.
 
