@@ -1,16 +1,18 @@
 # SARS-CoV-2 viral genomics
 
-The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley. **This work is on-going - please feel free to reach out with corrections, additions, or questions.** Analysis is broken up into three major sections:
+The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. **This work is on-going - please feel free to reach out with corrections, additions, or questions.**
 
-## [Data and Results Summary](#Data-and-Results-Summary)
+This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley, and analysis is broken up into three major sections:
+
+## [Data and Results Summary](#Data-and-Results-Summary-1)
 
 This section has an overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of all publicly available genomes, a table of gene annotations, and a table SRA run locations of raw reads.
 
-## [Interpatient variation](#interpatient-variation)
+## [Interpatient variation](#interpatient-variation-1)
 
 This work is based on comparing the covid19 genomes assembled from different patients. This type of analysis is typically done to understand outbreak clusters and how the genome evolves over time.
 
-## [Intrapatient variation](#Intrapatient-variation)
+## [Intrapatient variation](#Intrapatient-variation-1)
 
 This work is based on comparing the differences between viral genomes that are generated with a single individual during infection.
 
