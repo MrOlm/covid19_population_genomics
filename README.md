@@ -152,12 +152,20 @@ Here's how I did that with links to jupyter notebooks. Include all that weird ge
 ## Results
 
 [Figure1]: results/QC_boxplots_v2.png
+[Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
+[Figure2.2]: results/MicrodiversityDistrubution_Center_ID_v2.png
 
 ### Effect of sequencing protocol on resulting reads
 
 The reads from the SRA were prepared using a number of different RNA extraction methods, library preparation methods, and DNA sequencing machines. To identify potential biases associated with different methods we plotted the distribution of mapping quality metrics as compared to library preparation metadata (as retrieved from the SRA).
 
 ![Figure 1][Figure1]
+
+That all looks good. We can also plot the disctributions of values:
+
+![Figure 2.1][Figure2.1]
+
+![Figure 2.2][Figure2.2]
 
 ## Conclusions
 
