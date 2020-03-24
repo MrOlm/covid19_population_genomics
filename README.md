@@ -10,7 +10,7 @@ An overview of our results and links to quickly download some of the data parsed
 
 ## [Interpatient variation](#interpatient-variation-1)
 
-Analysis based on comparing the covid19 genomes assembled from different patients. 
+Analysis based on comparing the covid19 genomes assembled from different patients.
 
 ## [Intrapatient variation](#Intrapatient-variation-1)
 
@@ -24,11 +24,95 @@ Note: Intrapatient analyses require access to the raw sequencing reads generated
 
 # Data and Results Summary
 
+This will be filled in last
 
 
-# Interpatient variation
 
-### Data processing
+
+
+
+
+
+
+
+
+
+# Results
+
+## Inter-patient genome variation
+
+[interFigure1]: https://github.com/MrOlm/covid19_population_genomics/raw/master/results/interpatient_pi.png
+
+This is analysis related to comparing genomes from different samples.
+
+### Variation among publicly available genomes
+
+After genome alignment, the following cites have the highest nucleotide diversity in the alignment
+
+![Interpatientfigure](interFigure1)
+
+## Intra-patient nucleotide diversity analysis
+
+[Figure1]: results/QC_boxplots_v2.png
+[Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
+[Figure2.2]: results/MicrodiversityDistrubution_Center_ID_v2.png
+[Figure3]: results/CodonMicrodiversity_min_50_v2.png
+[Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
+[Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
+
+As viruses replicate within their hosts during infection they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). The variation among individuals in single host population is referred to as intrapatient variation, intraspecfic variation, or microdiversity. Analysis of this data has the following potential applications:
+
+* Identification of the genomic loci least likely to mutate during infection. Could be useful for designing universal primers / probes.
+
+* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the viral evolutionary pressures and function.
+
+* Estimation of the number of viral particles acquired to start infection and quantifying genetic diversity transferred during transmission.
+
+### Effect of sequencing protocol on resulting reads
+
+The reads from the SRA were prepared using a number of different RNA extraction methods, library preparation methods, and DNA sequencing machines. To identify potential biases associated with different methods, we plotted the distribution of mapping quality metrics as compared to library preparation metadata (as retrieved from the SRA).
+
+![Figure 1][Figure1]
+
+The figure shows that the sequencing protocol does have an impact on metrics such as nucleotide diversity and coverage standard deviation, but it is difficult to disentangle the effects of the different variables. Overall it does not look like any particular bias has a systemic bias associated with it.
+
+We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucleotide diversity distribution][Figure2.2]. This data led us to conclude that ~1000x coverage is needed for a smooth nucleotide diversity distribution, and that ~50x coverage is needed for a smooth coverage distribution. Going forward we restricted our analysis primarily to the 24 samples that have >= 50x coverage overall.
+
+### Nucleotide diversity analysis
+
+To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a [measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and every read/position in the alignment will be considered.
+
+As a check to ensure everything is working correctly, we compared the nucleotide diversity of each codon position:
+
+![Figure 3][Figure3]
+
+The height of each bar represents the average normalized nucleotide diversity of all bases with that codon position among all genes and all samples with >=50x coverage, and black bars show the 95% confidence intervals. All codon positions have significantly different nucleotide diversities from one another (Wilcoxon rank-sum test; see notebook for details).
+
+As expected, nucleotide diversity is highest at third codon position. This is because [mutations to the third codon position are much less likely to change the resulting amino acid than changes to the first or second position](https://genomevolution.org/wiki/index.php/Codon_wobble_positions), and thus, mutations to the third codon position less likely to have deleterious effects on the virus. The fact that our pipeline is able to detect this signal shows that the evolutionary pressures faced by the virus during infection are reflected in the resulting sequencing microdiversity. [A similar figure was also made for samples at over 1000x coverage][Figure3.2] that gave similar results.
+
+We next looked at the overall microdiversity of each gene in the genome:
+
+![Figure 4][Figure4]
+
+## Comparison of intra- and inter- patient diversity
+
+This will be a nice summary figure on that
+
+## Conclusions
+
+A couple of bullet points
+
+
+
+
+
+
+
+# Methods
+
+## Interpatient variation
+
+### Downloading genomes
 
 We are working with viral genomes from NCBI's data hub:
 https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=SARS-CoV-2,%20taxid:2697049
@@ -37,10 +121,13 @@ But a similar analysis could be done on the larger collection of sequences avail
 
 A FASTA file of March 20th currently available NCBI sequences can be found in `./data/interpatient/ncbi_mar20.fna`.
 
-Filtering:
+### Filtering
+
 The script `./data/interpatient/filter_seqs.py` will perform some quality checks on the NCBI sequences. Firstly, several of the sequences are too short, and do not represent full viral genomes. We filter out all sequences < 29 Kb, as the viral genome is ~30 Kb. There are also several sequences that are too short in GISAID.
 
 This script then filters out viral genomes that are too divergent to represent accurate genomes from the 2019 SARS-CoV-2 pandemic. This second step requires the program `fastANI` be installed in your path. It compares all genomes to the reference SARS-CoV-2 (`./data/interpatient/reference.fna`) and removes those that are <99% nucleotide identity.
+
+### Creating a genome alignment
 
 We then align the resulting filtered sequences using MAFFT - `mafft --thread 16 mar20_filtered_seqs.fna > mar20_filtered.aln` to generate a full genome alignment of the high quality viral genomes.
 
@@ -51,11 +138,9 @@ and the generated tree is available in `./data/interpatient/mar20_filtered.iqtre
 
 **The viral genome alignment is made available in `./data/interpatient/mar20_filtered.aln.**
 
-### Notebooks and analysis
+### Calculating metrics from the genome alignment
 
-We conduct a number of analyses on the alignment. In general, we want to know which positions in the genome are variable, and how variable they are. The notebook `./data/interpatient/interpatient_pi.ipynb` calculates nucleotide diversity in the alignment, with respect to the reference genome's gff annotation. It produces the following figures illustrating nucleotide diversity across the entire genome and by each gene and/or coding sequence:
-
-![Interpatientfigure](https://github.com/MrOlm/covid19_population_genomics/raw/master/results/interpatient_pi.png)
+We conduct a number of analyses on the alignment. In general, we want to know which positions in the genome are variable, and how variable they are. The notebook `./data/interpatient/interpatient_pi.ipynb` calculates nucleotide diversity in the alignment, with respect to the reference genome's gff annotation. It produces the figures illustrating nucleotide diversity across the entire genome and by each gene and/or coding sequence.
 
 Tabular data on the raw nucleotide diversity per reference position can be found in `./data/interpatient/nucleotide_diversity.txt`. Note that this calculation ignores any insertions or deletions from the reference and only tracks single nucleotide polymorphisms.
 
@@ -73,19 +158,7 @@ ref_pos	nucleotide	frequency
 ```
 Describing the position, nucleotides, and frequencies of each substitution across NCBI genomes.
 
-# Intrapatient variation
-
-## Background
-
-As viruses replicate within their hosts during infection they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). The variation among individuals in single host population is referred to as intrapatient variation, intraspecfic variation, or microdiversity. Analysis of this data has the following potential applications:
-
-* Identification of the genomic loci least likely to mutate during infection. Could be useful for designing universal primers / probes.
-
-* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the viral evolutionary pressures and function.
-
-* Estimation of the number of viral particles acquired to start infection and quantifying genetic diversity transferred during transmission. 
-
-## Methods
+## Intrapatient variation
 
 A typical pipeline for SARS-CoV-2 genome sequencing involves first generating a large number of DNA sequencing reads (short sequences of DNA that come from a single viral particle) and then assembling this data into a patient consensus genome (a representation of the most common viral genotype in a sample). Consensus genomes can be used for identifying outbreak clusters and global spread of the virus, but to understand the microdiversity present in a single sample, we use the raw DNA sequencing reads. Microdiversity (intrapatient variation) was profiled using the program [inStrain](https://github.com/MrOlm/instrain)
 
@@ -156,58 +229,31 @@ inStrain profile /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.f
 
 Here's how I did that with links to jupyter notebooks. Include all that weird genes stuff.
 
-## Results
 
-[Figure1]: results/QC_boxplots_v2.png
-[Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
-[Figure2.2]: results/MicrodiversityDistrubution_Center_ID_v2.png
-[Figure3]: results/CodonMicrodiversity_min_50_v2.png
-[Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
-[Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
 
-### Effect of sequencing protocol on resulting reads
 
-The reads from the SRA were prepared using a number of different RNA extraction methods, library preparation methods, and DNA sequencing machines. To identify potential biases associated with different methods, we plotted the distribution of mapping quality metrics as compared to library preparation metadata (as retrieved from the SRA).
 
-![Figure 1][Figure1]
+# Data availability
 
-The figure shows that the sequencing protocol does have an impact on metrics such as nucleotide diversity and coverage standard deviation, but it is difficult to disentangle the effects of the different variables. Overall it does not look like any particular bias has a systemic bias associated with it.
-
-We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucleotide diversity distribution][Figure2.2]. This data led us to conclude that ~1000x coverage is needed for a smooth nucleotide diversity distribution, and that ~50x coverage is needed for a smooth coverage distribution. Going forward we restricted our analysis primarily to the 24 samples that have >= 50x coverage overall.
-
-### Nucleotide diversity analysis
-
-To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a [measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and every read/position in the alignment will be considered.
-
-As a check to ensure everything is working correctly, we compared the nucleotide diversity of each codon position:
-
-![Figure 3][Figure3]
-
-The height of each bar represents the average normalized nucleotide diversity of all bases with that codon position among all genes and all samples with >=50x coverage, and black bars show the 95% confidence intervals. All codon positions have significantly different nucleotide diversities from one another (Wilcoxon rank-sum test; see notebook for details).
-
-As expected, nucleotide diversity is highest at third codon position. This is because [mutations to the third codon position are much less likely to change the resulting amino acid than changes to the first or second position](https://genomevolution.org/wiki/index.php/Codon_wobble_positions), and thus, mutations to the third codon position less likely to have deleterious effects on the virus. The fact that our pipeline is able to detect this signal shows that the evolutionary pressures faced by the virus during infection are reflected in the resulting sequencing microdiversity. [A similar figure was also made for samples at over 1000x coverage][Figure3.2] that gave similar results.
-
-We next looked at the overall microdiversity of each gene in the genome:
-
-![Figure 4][Figure4]
-
-### Comparison of intra- and inter- patient diversity
-
-This will be a nice summary figure on that
-
-## Conclusions
-
-A couple of bullet points
-
-## Data availability
-
-### Raw data
+## Raw data
 
 You can acquire either sequencing reads or assembled viral genomes from:
 
 https://www.ncbi.nlm.nih.gov/genbank/sars-cov-2-seqs/
 
 https://gisaid.org
+
+## Datatables
+
+[SRA_metadata]: data/datatables/intrapatient/SRA_metadata_v1.csv
+[Genome_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
+[Positional_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
+
+[genes_table]: data/reference_genome/COVID_genes_table_v2.tsv
+[positional_genes_table]: data/reference_genome/COVID_genes_positional_v2.csv
+
+
+
 
 
 ### Parsed data tables (`./datatables`)
