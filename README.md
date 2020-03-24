@@ -156,6 +156,9 @@ Here's how I did that with links to jupyter notebooks. Include all that weird ge
 [Figure1]: results/QC_boxplots_v2.png
 [Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
 [Figure2.2]: results/MicrodiversityDistrubution_Center_ID_v2.png
+[Figure3]: results/CodonMicrodiversity_min_50_v2.png
+[Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
+[Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
 
 ### Effect of sequencing protocol on resulting reads
 
@@ -169,7 +172,19 @@ We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucle
 
 ### Microdiversity analysis
 
-This is where I'll show the validation figure and the gene-level figure
+To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a [previously described measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and allowing every position in the alignment to be considered.
+
+As a check to ensure everything is working correctly, we compared the nucleotide diversity of each codon position:
+
+![Figure 3][Figure3]
+
+The height of each bar represents the average normalized nucleotide diversity of all bases with that codon position among all genes and all samples with >=50x coverage, and black bars show the 95% confidence intervals. All codon positions have significantly different nucleotide diversities from one another (Wilcoxon rank-sum test; see notebook for details).
+
+As expected, nucleotide diversity is highest at third codon position. This is because [mutations to the third codon position are much less likely to change the resulting amino acid than changes to the first or second position](https://genomevolution.org/wiki/index.php/Codon_wobble_positions), and thus, mutations to the third codon position less likely to have deleterious effects on the virus. The fact that our pipeline is able to detect this signal shows that the evolutionary pressures faced by the virus during infection are reflected in the resulting sequencing microdiversity. [A similar figure was also made for samples at over 1000x coverage][Figure3.2] that gave similar results.
+
+We next looked at the overall microdiversity of each gene in the genome:
+
+![Figure 4]
 
 ### Comparison of intra- and inter- patient diversity
 
