@@ -184,7 +184,7 @@ As expected, nucleotide diversity is highest at third codon position. This is be
 
 We next looked at the overall microdiversity of each gene in the genome:
 
-![Figure 4]
+![Figure 4][Figure4]
 
 ### Comparison of intra- and inter- patient diversity
 
