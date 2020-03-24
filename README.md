@@ -4,17 +4,17 @@ The purpose of this GitHub page is to share data, analyses, and results related 
 
 This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crits-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
 
-## [Data and Results Summary](#Data-and-Results-Summary-1)
+## [Summary](#Summary-1)
 
 An overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of publicly available genomes on NCBI, locations of genomic SNPs, a table of gene annotations, and a table SRA run locations of raw reads.
 
-## [Interpatient variation](#interpatient-variation-1)
+## [Results](#Results-1)
 
-Analysis based on comparing the covid19 genomes assembled from different patients.
+Analysis based on comparing the covid19 genomes assembled from different patients (interpatient variation) and based on comparing the viral genetic diversity found within single individuals during infection (intrapatient variation).
 
-## [Intrapatient variation](#Intrapatient-variation-1)
+## [Data availability](#Data-availability-1)
 
-Analyses based on comparing the viral genetic diversity found within single individuals during infection.
+Links to the data generated during this study for others to use
 
 ## [Citations and acknowledgements](#citations-and-acknowledgements-1)
 
@@ -22,20 +22,9 @@ This work completely depends on the scientists and universities that originally 
 
 Note: Intrapatient analyses require access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a consensus viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
-# Data and Results Summary
+# Summary
 
 This will be filled in last
-
-
-
-
-
-
-
-
-
-
-
 
 # Results
 
@@ -108,6 +97,46 @@ A couple of bullet points
 
 
 
+# Data availability
+
+## Raw data
+
+You can acquire either sequencing reads or assembled viral genomes from:
+
+https://www.ncbi.nlm.nih.gov/genbank/sars-cov-2-seqs/
+
+https://gisaid.org
+
+## Datatables
+
+[SRA_metadata]: data/datatables/intrapatient/SRA_metadata_v1.csv
+[COVID_genome_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
+[COVID_positional_coverage]: data/datatables/intrapatient/COVID_positional_coverage_v2.csv.gz
+
+[COVID_genes_table]: data/reference_genome/COVID_genes_table_v2.tsv
+[COVID_genes_positional]: data/reference_genome/COVID_genes_positional_v2.csv
+
+[interpatient_nucleotide_diversity]: data/interpatient/nucleotide_diversity.txt
+[interpatient_snps]: data/interpatient/interpatient_snps.txt
+
+### Reference genome annotation
+
+* [COVID_genes_table][COVID_genes_table] - Locations of gene-annotations on reference genome. Parsed from the reference GenBank file. **0-based indexing**
+
+* [COVID_genes_positional][COVID_genes_positional] - Each position in the genome and all associated annotations. Parsed from the [COVID_genes_table][COVID_genes_table]. Providing because parsing is made difficult due to the confusing gene structure
+
+### Interpatient data
+
+* [SRA_metadata][SRA_metadata] - Metadata of the SRA samples used for intra-patient analysis
+
+* [COVID_genome_coverage][COVID_genome_coverage] - Genome-wide coverage, breadth, nucleotide diversity, etc. of reads mapping to a COVID-19 reference genome
+
+* [COVID_positional_coverage][COVID_positional_coverage] - Position by position coverage and nucleotide diversity along the genome in sequencing reads
+
+
+
+
+
 # Methods
 
 ## Interpatient variation
@@ -144,7 +173,7 @@ We conduct a number of analyses on the alignment. In general, we want to know wh
 
 Tabular data on the raw nucleotide diversity per reference position can be found in `./data/interpatient/nucleotide_diversity.txt`. Note that this calculation ignores any insertions or deletions from the reference and only tracks single nucleotide polymorphisms.
 
-The notebook `./data/interpatient/interpatient_snps.ipynb` then generated the following table of genomic substitutions across patients in `./data/interpatient/interpatient_snps.txt`:
+The notebook `./data/interpatient/interpatient_snps.ipynb` then generated the following table of genomic substitutions across patients in `./`:
 
 ```
 ref_pos	nucleotide	frequency
@@ -233,38 +262,7 @@ Here's how I did that with links to jupyter notebooks. Include all that weird ge
 
 
 
-# Data availability
 
-## Raw data
-
-You can acquire either sequencing reads or assembled viral genomes from:
-
-https://www.ncbi.nlm.nih.gov/genbank/sars-cov-2-seqs/
-
-https://gisaid.org
-
-## Datatables
-
-[SRA_metadata]: data/datatables/intrapatient/SRA_metadata_v1.csv
-[Genome_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
-[Positional_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
-
-[genes_table]: data/reference_genome/COVID_genes_table_v2.tsv
-[positional_genes_table]: data/reference_genome/COVID_genes_positional_v2.csv
-
-
-
-
-
-### Parsed data tables (`./datatables`)
-
-* SRA_metadata_v1.csv - Metadata of the SRA samples used for intra-patient analysis
-
-* COVID_genome_coverage_v1.csv - Genome-wide coverage, breadth, nucleotide diversity, etc. of reads mapping to a COVID-19 reference genome
-
-* COVID_positional_coverage_v1.csv - Position by position coverage and nucleotide diversity along the genome in sequencing reads
-
-* COVID_SNPs_v1.csv - Genomic locations of intrapatient SNPs
 
 
 # Citations and acknowledgements
