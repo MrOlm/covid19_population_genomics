@@ -2,7 +2,7 @@
 
 The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. **This work is on-going - please feel free to reach out with corrections, additions, or questions.**
 
-This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley, and analysis is broken up into three major sections:
+This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley, and analysis is broken up into the following major sections:
 
 ## [Data and Results Summary](#Data-and-Results-Summary-1)
 
@@ -23,6 +23,8 @@ This work completely depends on the scientists and universities that originally 
 # Data and Results Summary
 
 This is where 3 bullet points of results will be (with links to their figure below) and links to the most key datatables that may be useful for others
+
+Note: This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
 # Interpatient variation
 
@@ -78,7 +80,7 @@ As viruses replicate within their hosts during infection they quickly mutate int
 
 ## Methods
 
-A typical pipeline for SARS-CoV-2 genome sequencing involves first generating a large number of DNA sequencing reads (short sequences of DNA that come from a single viral particle) and then assembling this data into a patient consensus genome (a representation of the most common viral genotype in a sample). Consensus genomes can be used for identifying outbreak clusters and global spread of the virus, but to understand the microdiversity present in a single sample, we use the raw DNA sequencing reads.
+A typical pipeline for SARS-CoV-2 genome sequencing involves first generating a large number of DNA sequencing reads (short sequences of DNA that come from a single viral particle) and then assembling this data into a patient consensus genome (a representation of the most common viral genotype in a sample). Consensus genomes can be used for identifying outbreak clusters and global spread of the virus, but to understand the microdiversity present in a single sample, we use the raw DNA sequencing reads. Microdiversity (intrapatient variation) was profiled using the program [inStrain](https://github.com/MrOlm/instrain)
 
 ### Downloading and processing raw reads
 
@@ -114,6 +116,47 @@ bbduk.sh in={fastq1} out={fastq1.bbduk}
 
 **A table listing all SRA files currently analyzed in this study is available at [datatables/SRA_metadata_v1.csv](datatables/SRA_metadata_v1.csv)**
 
+### Mapping reads to a reference genome and calculating microdiversity
+
+Microdiversity is calculated using the program [inStrain](https://github.com/MrOlm/instrain) which uses a `.bam` file as its input. A `.bam` file describes where each individual read or read-pair best maps to reference genome.
+
+The reference genome used in this study is [NCBI Reference Sequence: NC_045512.2](https://www.ncbi.nlm.nih.gov/nuccore/NC_045512). The `.fasta` file was downloaded for mapping by clicking "Sent to:" -> "Complete Record" -> Choose Destination: "File" -> Format "FASTA" -> "Create File". A `Genbank` format version listing gene locations was also downloaded using the same process but clicking Format "GenBank (full)".
+
+Reads were mapped to the reference genome using the program Bowtie2 with the following commands:
+
+```
+# Make an index for mapping
+$ bowtie2-build NC_045512.2.fasta NC_045512.2.fasta.bt2
+
+# Example command for paired reads
+$ bowtie2 -x /home/mattolm/user_data/Covid_19/genomes/NC_045512.2.fasta.bt2 -1 /home/mattolm/user_data/Covid_19/reads/filtered/SRR11278092_bbduk.fastq --no-unal -S /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.fasta.bt2-vs-SRR11278092.sam -p 10 2> /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.fasta.bt2-vs-SRR11278092.sam.log
+
+# Example command for unpaired reads
+$ bowtie2 -x /home/mattolm/user_data/Covid_19/genomes/NC_045512.2.fasta.bt2 -U /home/mattolm/user_data/Covid_19/reads/filtered/SRR11278092_bbduk.fastq --no-unal -S /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.fasta.bt2-vs-SRR11278092.sam -p 10 2> /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.fasta.bt2-vs-SRR11278092.sam.log
+```
+
+InStrain was then run on the resulting `.sam` files using the following commands (inStrain automatically converts `.sam` for `.bam` files):
+
+```
+# Example for paired reads
+
+# Example for unpaired reads
+```
+
+### Processing inStrain results
+
+Here's how I did that with links to jupyter notebooks. Include all that weird genes stuff.
+
+## Results
+
+Here's where I'll show those figures
+
+## Conclusions
+
+A couple of bullet points
+
+## Data availability
+
 ### Raw data
 
 You can acquire either sequencing reads or assembled viral genomes from:
@@ -133,11 +176,6 @@ https://gisaid.org
 
 * COVID_SNPs_v1.csv - Genomic locations of intrapatient SNPs
 
-### Intrapatient methods
-
-This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
-
-### Quality control
 
 # Citations and acknowledgements
 
