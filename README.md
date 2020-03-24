@@ -82,7 +82,37 @@ A typical pipeline for SARS-CoV-2 genome sequencing involves first generating a 
 
 ### Downloading and processing raw reads
 
-Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA, and selecting the platform "Illumina". This was last performed on **3/17/2020** and led to the identification of **36** runs. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)
+Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA, and selecting the platform "Illumina". This was last performed on **3/17/2020** and led to the identification of **36** runs. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D). This information was downloaded into a .csv file by clicking "Send to:" -> Choose Destination: "File" -> Format "RunInfo" -> "Create File".
+
+SRA files were downloaded using the URLs in the above file using the command:
+
+```
+$ cat SraRunInfo.csv | tail -n +2 | awk -F ',' '{print "wget " $10}' | bash
+```
+
+SRA files were converted into .fastq files using the command:
+
+```
+$ for s in $(ls SRR* | grep -v SRR11140750); do fastq-dump $s --split-files; done
+```
+
+For paired reads (reads where files ending in `_1.fastq` and `_2.fastq` were both created), the BBtools command `repair.sh` was used to remove un-paired reads using the command:
+
+```
+repair.sh in={fastq1} in2={fastq2} out={fastq1.repair} out2={fastq2.repair}
+```
+
+All reads were then trimmed and filtered using the BBtools command `bbduk.sh`:
+
+```
+# For paired reads:
+repair.sh in={fastq1.repair} in2={fastq2.repair} out={fastq1.bbduk} out2={fastq2.bbduk}
+
+# For unpaired reads:
+bbduk.sh in={fastq1} out={fastq1.bbduk}
+```
+
+**A table listing all SRA files currently analyzed in this study is available at [datatables/SRA_metadata_v1.csv](datatables/SRA_metadata_v1.csv)**
 
 ### Raw data
 
