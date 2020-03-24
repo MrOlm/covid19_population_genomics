@@ -2,7 +2,7 @@
 
 The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. **This work is on-going - please feel free to reach out with corrections, additions, or questions.**
 
-This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley, and analysis is broken up into the following major sections:
+This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
 
 ## [Data and Results Summary](#Data-and-Results-Summary-1)
 
@@ -20,11 +20,13 @@ Analysis based on comparing the differences between viral genomes that are gener
 
 This work completely depends on the scientists and universities that originally sequenced these genomes and made their data publicly available.
 
+Note: This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
+
 # Data and Results Summary
 
 This is where 3 bullet points of results will be (with links to their figure below) and links to the most key datatables that may be useful for others
 
-Note: This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
+
 
 # Interpatient variation
 
@@ -157,15 +159,21 @@ Here's how I did that with links to jupyter notebooks. Include all that weird ge
 
 ### Effect of sequencing protocol on resulting reads
 
-The reads from the SRA were prepared using a number of different RNA extraction methods, library preparation methods, and DNA sequencing machines. To identify potential biases associated with different methods we plotted the distribution of mapping quality metrics as compared to library preparation metadata (as retrieved from the SRA).
+The reads from the SRA were prepared using a number of different RNA extraction methods, library preparation methods, and DNA sequencing machines. To identify potential biases associated with different methods, we plotted the distribution of mapping quality metrics as compared to library preparation metadata (as retrieved from the SRA).
 
 ![Figure 1][Figure1]
 
-That all looks good. We can also plot the disctributions of values:
+The figure shows that the sequencing protocol does have an impact on metrics such as nucleotide diversity and coverage standard deviation, but it is difficult to disentangle the effects of the different variables. Overall it does not look like any particular bias has a systemic bias associated with it.
 
-![Figure 2.1][Figure2.1]
+We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucleotide diversity distribution][Figure2.2]. This data led us to conclude that ~1000x coverage is needed for a smooth nucleotide diversity distribution, and that ~50x coverage is needed for a smooth coverage distribution. Going forward we restricted our analysis primarily to the 24 samples that have >= 50x coverage overall.
 
-![Figure 2.2][Figure2.2]
+### Microdiversity analysis
+
+This is where I'll show the validation figure and the gene-level figure
+
+### Comparison of intra- and inter- patient diversity
+
+This will be a nice summary figure on that
 
 ## Conclusions
 
