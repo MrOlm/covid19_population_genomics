@@ -2,29 +2,27 @@
 
 The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. **This work is on-going - please feel free to reach out with corrections, additions, or questions.**
 
-This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
+This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crits-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
 
 ## [Data and Results Summary](#Data-and-Results-Summary-1)
 
-An overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of all publicly available genomes, a table of gene annotations, and a table SRA run locations of raw reads.
+An overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of publicly available genomes on NCBI, locations of genomic SNPs, a table of gene annotations, and a table SRA run locations of raw reads.
 
 ## [Interpatient variation](#interpatient-variation-1)
 
-Analysis based on comparing the covid19 genomes assembled from different patients. This type of analysis is typically done to understand outbreak clusters and how the genome evolves over time.
+Analysis based on comparing the covid19 genomes assembled from different patients. 
 
 ## [Intrapatient variation](#Intrapatient-variation-1)
 
-Analysis based on comparing the differences between viral genomes that are generated with a single individual during infection.
+Analyses based on comparing the viral genetic diversity found within single individuals during infection.
 
 ## [Citations and acknowledgements](#citations-and-acknowledgements-1)
 
 This work completely depends on the scientists and universities that originally sequenced these genomes and made their data publicly available.
 
-Note: This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
+Note: Intrapatient analyses require access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a consensus viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
 # Data and Results Summary
-
-This is where 3 bullet points of results will be (with links to their figure below) and links to the most key datatables that may be useful for others
 
 
 
@@ -37,36 +35,42 @@ https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusL
 
 But a similar analysis could be done on the larger collection of sequences available in [GISAID](gisaid.org). Currently there are about ~170 genomes in NCBI and over 800 in GISAID.
 
-A FASTA file of all currently available NCBI sequences can be found in `./interpatient/ncbi_mar20.fna`.
+A FASTA file of March 20th currently available NCBI sequences can be found in `./data/interpatient/ncbi_mar20.fna`.
 
 Filtering:
-The script `./interpatient/filter_seqs.py` will perform some quality checks on the NCBI sequences. Firstly, several of the sequences are too short, and do not represent full viral genomes. We filter out all sequences < 29 Kb, as the viral genome is ~30 Kb. There are also several sequences that are too short in GISAID.
+The script `./data/interpatient/filter_seqs.py` will perform some quality checks on the NCBI sequences. Firstly, several of the sequences are too short, and do not represent full viral genomes. We filter out all sequences < 29 Kb, as the viral genome is ~30 Kb. There are also several sequences that are too short in GISAID.
 
-This script then filters out viral genomes that are too divergent to represent accurate genomes from the 2019 SARS-CoV-2 pandemic. This second step requires the program `fastANI` be installed in your path. It compares all genomes to the reference SARS-CoV-2 (`./interpatient/reference.fna`) and removes those that are <99% nucleotide identity.
+This script then filters out viral genomes that are too divergent to represent accurate genomes from the 2019 SARS-CoV-2 pandemic. This second step requires the program `fastANI` be installed in your path. It compares all genomes to the reference SARS-CoV-2 (`./data/interpatient/reference.fna`) and removes those that are <99% nucleotide identity.
 
 We then align the resulting filtered sequences using MAFFT - `mafft --thread 16 mar20_filtered_seqs.fna > mar20_filtered.aln` to generate a full genome alignment of the high quality viral genomes.
 
 We generate a phylogenetic tree of these sequences using IQTree:
 
 `iqtree -nt 10 -s mar20_filtered.aln`
-and the generated tree is available in `./interpatient/mar20_filtered.iqtree`.
+and the generated tree is available in `./data/interpatient/mar20_filtered.iqtree`.
 
-**The viral genome alignment is made available in `./interpatient/mar20_filtered.aln.**
+**The viral genome alignment is made available in `./data/interpatient/mar20_filtered.aln.**
 
 ### Notebooks and analysis
 
-We conduct a number of analyses on the alignment. In general, we want to know which positions in the genome are variable, and how variable they are. The notebook `interpatient_pi.ipynb` calculates nucleotide diversity in the alignment, with respect to the reference genome's gff annotation. It produces the following figures illustrating nucleotide diversity across the entire genome and by each gene and/or coding sequence:
+We conduct a number of analyses on the alignment. In general, we want to know which positions in the genome are variable, and how variable they are. The notebook `./data/interpatient/interpatient_pi.ipynb` calculates nucleotide diversity in the alignment, with respect to the reference genome's gff annotation. It produces the following figures illustrating nucleotide diversity across the entire genome and by each gene and/or coding sequence:
 
-Tabular data on the raw nucleotide diversity per reference position can be found in `./interpatient/nucleotide_diversity.txt`. Note that this calculation ignores any insertions or deletions from the reference and only tracks single nucleotide polymorphisms.
+![Interpatientfigure](https://github.com/MrOlm/covid19_population_genomics/raw/master/results/interpatient_pi.png)
 
-The notebook `./interpatient_snps.ipynb` then generated the following table of genomic substitutions across patients in `./interpatient/substitutions.txt`:
+Tabular data on the raw nucleotide diversity per reference position can be found in `./data/interpatient/nucleotide_diversity.txt`. Note that this calculation ignores any insertions or deletions from the reference and only tracks single nucleotide polymorphisms.
+
+The notebook `./data/interpatient/interpatient_snps.ipynb` then generated the following table of genomic substitutions across patients in `./data/interpatient/interpatient_snps.txt`:
 
 ```
-Position,Reference_base,Alternative_base,Ref_frequency,Alt_frequency,CodingVariant
-100,G,A,0.8,0.2,S
-101,G,A,0.9,0.1,S:V
-```
-Describing the position, nucleotides, allele frequencies, and impact on amino acid sequence (non-synonymous vs synonymous) of each substitution.
+ref_pos	nucleotide	frequency
+1	A	0.9333333333333333
+1	C	0.05333333333333334
+1	T	0.013333333333333334
+2	C	0.01282051282051282
+2	T	0.9871794871794872
+3	C	0.012658227848101266
+3	T	0.9746835443037974```
+Describing the position, nucleotides, and frequencies of each substitution across NCBI genomes.
 
 # Intrapatient variation
 
@@ -170,9 +174,9 @@ The figure shows that the sequencing protocol does have an impact on metrics suc
 
 We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucleotide diversity distribution][Figure2.2]. This data led us to conclude that ~1000x coverage is needed for a smooth nucleotide diversity distribution, and that ~50x coverage is needed for a smooth coverage distribution. Going forward we restricted our analysis primarily to the 24 samples that have >= 50x coverage overall.
 
-### Microdiversity analysis
+### Nucleotide diversity analysis
 
-To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a [previously described measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and allowing every position in the alignment to be considered.
+To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a [measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and every read/position in the alignment will be considered.
 
 As a check to ensure everything is working correctly, we compared the nucleotide diversity of each codon position:
 
