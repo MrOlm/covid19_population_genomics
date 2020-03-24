@@ -1,6 +1,6 @@
 # SARS-CoV-2 viral genomics
 
-The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. It is broken up into three major sections:
+The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crist-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley. **This work is on-going - please feel free to reach out with corrections, additions, or questions.** Analysis is broken up into three major sections:
 
 ## [Data and Results Summary](#Data-and-Results-Summary)
 
@@ -13,10 +13,6 @@ This work is based on comparing the covid19 genomes assembled from different pat
 ## [Intrapatient variation](#Intrapatient-variation)
 
 This work is based on comparing the differences between viral genomes that are generated with a single individual during infection.
-
-**This work is on-going - please feel free to reach out with corrections, additions, or questions.**
-
-This analysis was performed primarily by Matt Olm (mattolm@stanford.edu) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (crist-christoph@berkeley.edu) in Jill Banfield's lab at University of California, Berkeley.
 
 # Data and Results Summary
 
