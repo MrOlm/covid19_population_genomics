@@ -79,11 +79,11 @@ Describing the position, nucleotides, and frequencies of each substitution acros
 
 As viruses replicate within their hosts during infection they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). The variation among individuals in single host population is referred to as intrapatient variation, intraspecfic variation, or microdiversity. Analysis of this data has the following potential applications:
 
-* Identification of the genomic loci least likely to mutate during infection. This can be useful for designing robust tests to detect the viral genome
+* Identification of the genomic loci least likely to mutate during infection. Could be useful for designing universal primers / probes.
 
-* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the virus functions and can inform wet-lab experiments aimed at creating novel therapeutics
+* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the viral evolutionary pressures and function.
 
-* Estimation of the number of viral particles acquired to start infection and the amount of microdiversity transferred during transmission. This is an important piece of information to understand how the virus spreads from a public health perspective.
+* Estimation of the number of viral particles acquired to start infection and quantifying genetic diversity transferred during transmission. 
 
 ## Methods
 
