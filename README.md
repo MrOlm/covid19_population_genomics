@@ -1,14 +1,28 @@
 # SARS-CoV-2 viral genomics
 
-### A portal for sharing data, analyses, and results analyzing genomic variation for SARS-CoV-2
+The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. It is broken up into three major sections:
 
+1) [Data and Results Summary](#Data-and-Results-Summary)
+
+This section has an overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of all publicly available genomes, a table of gene annotations, and a table SRA run locations of raw reads.
+
+2) [Interpatient variation](#interpatient-variation)
+
+This work is based on comparing the covid19 genomes assembled from different patients. This type of analysis is typically done to understand outbreak clusters and how the genome evolves over time.
+
+3) [Intrapatient variation](#Intrapatient-variation)
+
+This work is based on comparing the differences between viral genomes that are generated with a single individual during infection.
 
 **This work is on-going - please feel free to reach out with corrections, additions, or questions.**
 
-This analysis was performed primarily by Matt Olm (mattolm@stanford.edu) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (crist-christoph@berkeley.edu) from Jill Banfield's lab at University of California, Berkeley.
+This analysis was performed primarily by Matt Olm (mattolm@stanford.edu) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (crist-christoph@berkeley.edu) in Jill Banfield's lab at University of California, Berkeley.
 
+# Data and Results Summary
 
-## Interpatient variation
+This is where 3 bullet points of results will be (with links to their figure below) and links to the most key datatables that may be useful for others
+
+# Interpatient variation
 
 ### Data processing
 
@@ -22,7 +36,7 @@ A FASTA file of all currently available NCBI sequences can be found in `./interp
 Filtering:
 The script `./interpatient/filter_seqs.py` will perform some quality checks on the NCBI sequences. Firstly, several of the sequences are too short, and do not represent full viral genomes. We filter out all sequences < 29 Kb, as the viral genome is ~30 Kb. There are also several sequences that are too short in GISAID.
 
-This script then filters out viral genomes that are too divergent to represent accurate genomes from the 2019 SARS-CoV-2 pandemic. This second step requires the program `fastANI` be installed in your path. It compares all genomes to the reference SARS-CoV-2 (`./interpatient/reference.fna`) and removes those that are <99% nucleotide identity. 
+This script then filters out viral genomes that are too divergent to represent accurate genomes from the 2019 SARS-CoV-2 pandemic. This second step requires the program `fastANI` be installed in your path. It compares all genomes to the reference SARS-CoV-2 (`./interpatient/reference.fna`) and removes those that are <99% nucleotide identity.
 
 We then align the resulting filtered sequences using MAFFT - `mafft --thread 16 mar20_filtered_seqs.fna > mar20_filtered.aln` to generate a full genome alignment of the high quality viral genomes.
 
@@ -80,6 +94,6 @@ https://gisaid.org
 
 This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
+# Intrapatient variation
 
 ### Quality control
-
