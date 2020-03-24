@@ -48,7 +48,7 @@ This is analysis related to comparing genomes from different samples.
 
 After genome alignment, the following cites have the highest nucleotide diversity in the alignment
 
-![interFigure1](interFigure1)
+![interFigure1][interFigure1]
 
 ## Intra-patient nucleotide diversity analysis
 
