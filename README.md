@@ -69,7 +69,8 @@ ref_pos	nucleotide	frequency
 2	C	0.01282051282051282
 2	T	0.9871794871794872
 3	C	0.012658227848101266
-3	T	0.9746835443037974```
+3	T	0.9746835443037974
+```
 Describing the position, nucleotides, and frequencies of each substitution across NCBI genomes.
 
 # Intrapatient variation
