@@ -43,7 +43,7 @@ We generate a phylogenetic tree of these sequences using IQTree:
 `iqtree -nt 10 -s mar20_filtered.aln`
 and the generated tree is available in `./interpatient/mar20_filtered.iqtree`.
 
-**The viral genome alignment is made available in `./interpatient/mar20_filtered.aln.
+**The viral genome alignment is made available in `./interpatient/mar20_filtered.aln.**
 
 ### Notebooks and analysis
 
@@ -60,7 +60,7 @@ Position,Reference_base,Alternative_base,Ref_frequency,Alt_frequency,CodingVaria
 ```
 Describing the position, nucleotides, allele frequencies, and impact on amino acid sequence (non-synonymous vs synonymous) of each substitution.
 
-## Intrapatient variation
+# Intrapatient variation
 
 Goals: detecting and tracking viral genetic variation within individuals. Within-patient data can have the following applications:
 
@@ -92,6 +92,6 @@ https://gisaid.org
 
 This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
-# Intrapatient variation
+
 
 ### Quality control
