@@ -28,9 +28,19 @@ This will be filled in last
 
 # Results
 
+## Introduction
+
+As viruses replicate within their hosts during infection, they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). The variation among individuals in single host population is referred to as intrapatient variation, intraspecfic variation, or microdiversity. Analysis of this data has the following potential applications:
+
+* Identification of the genomic loci least likely to mutate during infection. Could be useful for designing universal primers / probes.
+
+* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the viral evolutionary pressures and function.
+
+* Estimation of the number of viral particles acquired to start infection and quantifying genetic diversity transferred during transmission.
+
 ## Inter-patient genome variation
 
-[interFigure1]: https://github.com/MrOlm/covid19_population_genomics/raw/master/results/interpatient_pi.png
+[interFigure1]: results/interpatient_pi.png
 
 This is analysis related to comparing genomes from different samples.
 
@@ -49,13 +59,7 @@ After genome alignment, the following cites have the highest nucleotide diversit
 [Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
 [Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
 
-As viruses replicate within their hosts during infection they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). The variation among individuals in single host population is referred to as intrapatient variation, intraspecfic variation, or microdiversity. Analysis of this data has the following potential applications:
 
-* Identification of the genomic loci least likely to mutate during infection. Could be useful for designing universal primers / probes.
-
-* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the viral evolutionary pressures and function.
-
-* Estimation of the number of viral particles acquired to start infection and quantifying genetic diversity transferred during transmission.
 
 ### Effect of sequencing protocol on resulting reads
 
