@@ -114,7 +114,7 @@ repair.sh in={fastq1.repair} in2={fastq2.repair} out={fastq1.bbduk} out2={fastq2
 bbduk.sh in={fastq1} out={fastq1.bbduk}
 ```
 
-**A table listing all SRA files currently analyzed in this study is available at [datatables/SRA_metadata_v1.csv](datatables/SRA_metadata_v1.csv)**
+A table listing all SRA files currently analyzed in this study is available at [datatables/SRA_metadata_v1.csv](datatables/SRA_metadata_v1.csv)
 
 ### Mapping reads to a reference genome and calculating microdiversity
 
@@ -139,8 +139,10 @@ InStrain was then run on the resulting `.sam` files using the following commands
 
 ```
 # Example for paired reads
+inStrain profile /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.fasta.bt2-vs-SRR11241255.sam /home/mattolm/user_data/Covid_19/genomes/NC_045512.2.fasta -o /home/mattolm/user_data/Covid_19/inStrain/profiles/NC_045512.2.fasta.bt2-vs-SRR11241255.sam.IS -p 10 --pairing_filter non_discordant -g /home/mattolm/user_data/Covid_19/genomes/NC_045512.2.gb --skip_mm_profiling
 
 # Example for unpaired reads
+inStrain profile /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.fasta.bt2-vs-SRR11278167.sam /home/mattolm/user_data/Covid_19/genomes/NC_045512.2.fasta -o /home/mattolm/user_data/Covid_19/inStrain/profiles/NC_045512.2.fasta.bt2-vs-SRR11278167.sam.IS -p 10 --pairing_filter non_discordant -g /home/mattolm/user_data/Covid_19/genomes/NC_045512.2.gb --skip_mm_profiling
 ```
 
 ### Processing inStrain results
@@ -149,7 +151,13 @@ Here's how I did that with links to jupyter notebooks. Include all that weird ge
 
 ## Results
 
-Here's where I'll show those figures
+[Figure1]: results/QC_boxplots_v2.png
+
+### Effect of sequencing protocol on resulting reads
+
+The reads from the SRA were prepared using a number of different RNA extraction methods, library preparation methods, and DNA sequencing machines. To identify potential biases associated with different methods we plotted the distribution of mapping quality metrics as compared to library preparation metadata (as retrieved from the SRA).
+
+![Figure 1][Figure1]
 
 ## Conclusions
 
