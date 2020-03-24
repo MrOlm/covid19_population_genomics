@@ -16,6 +16,10 @@ Analysis based on comparing the covid19 genomes assembled from different patient
 
 Links to the data generated during this study for others to use
 
+## [Methods](#Methods-1)
+
+Detailed methods on how analysis was performed.
+
 ## [Citations and acknowledgements](#citations-and-acknowledgements-1)
 
 This work completely depends on the scientists and universities that originally sequenced these genomes and made their data publicly available.
@@ -30,7 +34,9 @@ This will be filled in last
 
 ## Introduction
 
-As viruses replicate within their hosts during infection, they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). The variation among individuals in single host population is referred to as intrapatient variation, intraspecfic variation, or microdiversity. Analysis of this data has the following potential applications:
+As viruses replicate within their hosts during infection, they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). These populations are usually summarized as a single genome representing the consensus genome from a particular patient, and analysis of **interpatient variation** (differences among the consensus genomes from different patients) is useful for understanding how the outbreak spreads, and how the virus evolves globally.
+
+The variation among individuals in single host population is referred to as **intrapatient variation**, intraspecfic variation, or microdiversity. These type of variation is less commonly studied, but analysis of this data has the following potential applications:
 
 * Identification of the genomic loci least likely to mutate during infection. Could be useful for designing universal primers / probes.
 
@@ -38,19 +44,17 @@ As viruses replicate within their hosts during infection, they quickly mutate in
 
 * Estimation of the number of viral particles acquired to start infection and quantifying genetic diversity transferred during transmission.
 
-## Inter-patient genome variation
+## Inter-patient SARS-CoV-2 genome variation
 
 [interFigure1]: results/interpatient_pi.png
 
-This is analysis related to comparing genomes from different samples.
-
-### Variation among publicly available genomes
+To analyze inter-patient variation, we downloaded publicly available SARS-CoV-2 genomes, processed and filtered them, and generated a multiple sequence alignment. Details can be found in the [Methods](#Methods-1) second, and the genomes and alignment can be downloaded from the [Data availability](#Data-availability-1) section.
 
 After genome alignment, the following cites have the highest nucleotide diversity in the alignment
 
 ![interFigure1][interFigure1]
 
-## Intra-patient nucleotide diversity analysis
+## Intra-patient SARS-CoV-2 nucleotide diversity
 
 [Figure1]: results/QC_boxplots_v2.png
 [Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
@@ -58,8 +62,6 @@ After genome alignment, the following cites have the highest nucleotide diversit
 [Figure3]: results/CodonMicrodiversity_min_50_v2.png
 [Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
 [Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
-
-
 
 ### Effect of sequencing protocol on resulting reads
 
