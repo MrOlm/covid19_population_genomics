@@ -6,15 +6,19 @@ This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Ju
 
 ## [Data and Results Summary](#Data-and-Results-Summary-1)
 
-This section has an overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of all publicly available genomes, a table of gene annotations, and a table SRA run locations of raw reads.
+An overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of all publicly available genomes, a table of gene annotations, and a table SRA run locations of raw reads.
 
 ## [Interpatient variation](#interpatient-variation-1)
 
-This work is based on comparing the covid19 genomes assembled from different patients. This type of analysis is typically done to understand outbreak clusters and how the genome evolves over time.
+Analysis based on comparing the covid19 genomes assembled from different patients. This type of analysis is typically done to understand outbreak clusters and how the genome evolves over time.
 
 ## [Intrapatient variation](#Intrapatient-variation-1)
 
-This work is based on comparing the differences between viral genomes that are generated with a single individual during infection.
+Analysis based on comparing the differences between viral genomes that are generated with a single individual during infection.
+
+## [Citations and acknowledgements](#citations-and-acknowledgements-1)
+
+This work completely depends on the scientists and universities that originally sequenced these genomes and made their data publicly available.
 
 # Data and Results Summary
 
@@ -92,6 +96,18 @@ https://gisaid.org
 
 This method requires access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
-
-
 ### Quality control
+
+# Citations and acknowledgements
+
+This work completely depends on the scientists that originally sequenced these genomes and made their data publicly available. For the intrapatient analysis, this includes:
+
+* Technological University of Pereira
+
+* University of Washington
+
+* The Wuhan Institute of Virology
+
+* Beijing Institute of Genomics
+
+* The University of Wisconsin–Madison
