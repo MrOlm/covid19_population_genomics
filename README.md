@@ -66,12 +66,23 @@ Describing the position, nucleotides, allele frequencies, and impact on amino ac
 
 # Intrapatient variation
 
-Goals: detecting and tracking viral genetic variation within individuals. Within-patient data can have the following applications:
+## Background
 
-* Identification of genomic loci less likely to mutate during infection.
-* Identification of genomic loci under different modes of selection.
-* Comparison of viral evolution within individuals versus global evolution.
-* Possible estimation of the number of viral particles acquired to start infection.
+As viruses replicate within their hosts during infection they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). The variation among individuals in single host population is referred to as intrapatient variation, intraspecfic variation, or microdiversity. Analysis of this data has the following potential applications:
+
+* Identification of the genomic loci least likely to mutate during infection. This can be useful for designing robust tests to detect the viral genome
+
+* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the virus functions and can inform wet-lab experiments aimed at creating novel therapeutics
+
+* Estimation of the number of viral particles acquired to start infection and the amount of microdiversity transferred during transmission. This is an important piece of information to understand how the virus spreads from a public health perspective.
+
+## Methods
+
+A typical pipeline for SARS-CoV-2 genome sequencing involves first generating a large number of DNA sequencing reads (short sequences of DNA that come from a single viral particle) and then assembling this data into a patient consensus genome (a representation of the most common viral genotype in a sample). Consensus genomes can be used for identifying outbreak clusters and global spread of the virus, but to understand the microdiversity present in a single sample, we use the raw DNA sequencing reads.
+
+### Downloading and processing raw reads
+
+Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA, and selecting the platform "Illumina". This was last performed on **3/17/2020** and led to the identification of **36** runs. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)
 
 ### Raw data
 
