@@ -20,7 +20,7 @@ Detailed methods on how analysis was performed.
 
 This work completely depends on the scientists and universities that originally sequenced these genomes and made their data publicly available.
 
-Note: Intrapatient analyses require access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a consensus viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
+Note: Intrapatient analyses require access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a consensus viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in SARS-CoV-2 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
 # Results
 
