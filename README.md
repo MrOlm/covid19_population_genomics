@@ -59,7 +59,7 @@ Top: nucleotide diversity averaged per locus. We see high nucleotide diversity i
 
 ## Intra-patient SARS-CoV-2 nucleotide diversity
 
-[Figure1]: results/QC_boxplots_v2.png
+[Figure1]: results/QC_boxplots_v3.png
 [Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
 [Figure2.2]: results/MicrodiversityDistrubution_Center_ID_v2.png
 [Figure3]: results/CodonMicrodiversity_min_50_v2.png
