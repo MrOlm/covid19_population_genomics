@@ -67,7 +67,7 @@ Top: nucleotide diversity averaged per locus. We see high nucleotide diversity i
 [Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
 [Figure4.2]: results/GeneMicrodiversity_RankOrder_Coverage_v2.png
 [Figure5]: results/GeneMicrodiversity_RankOrder_interIntra_v2.png
-[Figure5.2]: results/GeneMicrodiversity_scatter_interIntra_v2.png
+[Figure5.2]: results/GeneMicrodiversity_scatter_interIntra_v3.png
 
 ### Effect of sequencing protocol on resulting reads
 
