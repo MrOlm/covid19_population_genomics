@@ -118,15 +118,9 @@ A couple of bullet points
 
 # Data availability
 
-## Raw data
+[NCBI_genomes]: data/interpatient/ncbi_mar20.fna
+[genome_alignment]: data/interpatient/mar20_filtered.aln
 
-You can acquire either sequencing reads or assembled viral genomes from:
-
-https://www.ncbi.nlm.nih.gov/genbank/sars-cov-2-seqs/
-
-https://gisaid.org
-
-## Datatables
 
 [SRA_metadata]: data/datatables/intrapatient/SRA_metadata_v1.csv
 [COVID_genome_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
@@ -138,13 +132,24 @@ https://gisaid.org
 [interpatient_nucleotide_diversity]: data/interpatient/nucleotide_diversity.txt
 [interpatient_snps]: data/interpatient/interpatient_snps.txt
 
+
+
+## Raw data
+
+* [NCBI_genomes][NCBI_genomes] - Fasta file of genomes used in this study
+
+* [genome_alignment][genome_alignment] - Alignment of COVID-19 genomes used in this study
+
+## Datatables
+
+
 ### Reference genome annotation
 
 * [COVID_genes_table][COVID_genes_table] - Locations of gene-annotations on reference genome. Parsed from the reference GenBank file. **0-based indexing**
 
 * [COVID_genes_positional][COVID_genes_positional] - Each position in the genome and all associated annotations. Parsed from the [COVID_genes_table][COVID_genes_table]. Providing because parsing is made difficult due to the confusing gene structure
 
-### Interpatient data
+### Inter-patient data
 
 * [SRA_metadata][SRA_metadata] - Metadata of the SRA samples used for intra-patient analysis
 
@@ -152,13 +157,17 @@ https://gisaid.org
 
 * [COVID_positional_coverage][COVID_positional_coverage] - Position by position coverage and nucleotide diversity along the genome in sequencing reads
 
+### Inter-patient data
 
+* [interpatient_nucleotide_diversity][interpatient_nucleotide_diversity] - Nucleotide diversity of every position in the genome alignment
 
+* [interpatient_snps][interpatient_snps] - Describes the position, nucleotides, and frequencies of each substitution across NCBI genomes.
 
+## Data analysis notebooks
 
 # Methods
 
-## Interpatient variation
+## Inter-patient variation
 
 ### Downloading genomes
 
@@ -167,7 +176,7 @@ https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusL
 
 But a similar analysis could be done on the larger collection of sequences available in [GISAID](gisaid.org). Currently there are about ~170 genomes in NCBI and over 800 in GISAID.
 
-A FASTA file of March 20th currently available NCBI sequences can be found in `./data/interpatient/ncbi_mar20.fna`.
+A FASTA file of March 20th currently available NCBI sequences can be found in [/data/interpatient/ncbi_mar20.fna][NCBI_genomes]
 
 ### Filtering
 
@@ -184,7 +193,7 @@ We generate a phylogenetic tree of these sequences using IQTree:
 `iqtree -nt 10 -s mar20_filtered.aln`
 and the generated tree is available in `./data/interpatient/mar20_filtered.iqtree`.
 
-**The viral genome alignment is made available in `./data/interpatient/mar20_filtered.aln.**
+**The viral genome alignment is made available in [./data/interpatient/mar20_filtered.aln][genome_alignment]**
 
 ### Calculating metrics from the genome alignment
 
@@ -206,7 +215,7 @@ ref_pos	nucleotide	frequency
 ```
 Describing the position, nucleotides, and frequencies of each substitution across NCBI genomes.
 
-## Intrapatient variation
+## Intra-patient variation
 
 A typical pipeline for SARS-CoV-2 genome sequencing involves first generating a large number of DNA sequencing reads (short sequences of DNA that come from a single viral particle) and then assembling this data into a patient consensus genome (a representation of the most common viral genotype in a sample). Consensus genomes can be used for identifying outbreak clusters and global spread of the virus, but to understand the microdiversity present in a single sample, we use the raw DNA sequencing reads. Microdiversity (intrapatient variation) was profiled using the program [inStrain](https://github.com/MrOlm/instrain)
 
@@ -286,7 +295,7 @@ Here's how I did that with links to jupyter notebooks. Include all that weird ge
 
 # Citations and acknowledgements
 
-This work completely depends on the scientists that originally sequenced these genomes and made their data publicly available. For the intrapatient analysis, this includes:
+This work completely depends on the scientists that originally sequenced these genomes and made their data publicly available. For the intra-patient analysis, this includes:
 
 * Technological University of Pereira
 
