@@ -101,9 +101,15 @@ For each set of reads analyzed we ranked each annotation by its intra-patient nu
 
 ## Comparison of intra- and inter- patient diversity
 
+We first compared intra- and inter- nucleotide diversity in a rank-based manner, as described above:
+
 ![Figure 5][Figure5]
 
-![Figure 5.2][Figure5.2 | width=100]
+Several things jump out here. First, the stem_loop and untranslated regions (3' UTR and 5' UTR) have the highest nucleotide diversity both on an intra-patient and inter-patient level. This makes sense because these regions are not encoded into proteins, and thus are likely subjected to relaxed selective pressures. Second, nsp11 has very low diversity by both metrics. This also makes sense because this is the gene in which an essential programmed ribosome slip happens. It makes sense that mutations in this region would be detrimental, and thus highly selected against, resulting in reduced nucleotide diversity. Finally, while there is some consensus between the two measures, they're not the same. To explore this further we made a scatter plot to compare them directly:
+
+![Figure 5.2][Figure5.2]
+
+The plot shows data for all samples (with at least 50x coverage), as well as samples from each center we have reads from. This is to ensure that the intra-patient results we get are not simply biases associated with differences in library preparation and sequencing methodologies.
 
 ## Conclusions
 
