@@ -68,6 +68,7 @@ The first on the left shows that nucleotide diversity varies greatly between the
 [Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
 [Figure4.2]: results/GeneMicrodiversity_RankOrder_Coverage_v2.png
 [Figure5]: results/GeneMicrodiversity_RankOrder_interIntra_v2.png
+[Figure5.2]: results/GeneMicrodiversity_scatter_interIntra_v2.png
 
 ### Effect of sequencing protocol on resulting reads
 
@@ -102,6 +103,8 @@ For each set of reads analyzed we ranked each annotation by its intra-patient nu
 ## Comparison of intra- and inter- patient diversity
 
 ![Figure 5][Figure5]
+
+![Figure 5.2][Figure5.2]
 
 ## Conclusions
 
