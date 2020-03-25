@@ -298,7 +298,7 @@ inStrain profile /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.f
 
 ### Processing inStrain results
 
-See Jupyter Notebooks linked above for details on how inStrain results were processed to make figures.
+See [Jupyter Notebooks linked above](#data-analysis-notebooks) for details on how inStrain results were processed to make figures.
 
 # Citations and acknowledgements
 
