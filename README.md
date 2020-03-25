@@ -107,11 +107,11 @@ We first compared intra- and inter- nucleotide diversity in a rank-based manner,
 
 Several things jump out here. First, the stem_loop and untranslated regions (3' UTR and 5' UTR) have the highest nucleotide diversity both on an intra-patient and inter-patient level. This makes sense because these regions are not encoded into proteins, and thus may be likely subjected to relaxed selective pressures. They are also at the ends of the viral genome, where sequencing errors are most common.
 
-Second, the small nsp11 ORF has very low diversity by both metrics. This gene occurs due to an essential programmed ribosome slip, and may be under strong purifying selection. Finally, while there is some consensus between the two measures, they're not the same. To explore this further we made a scatter plot to compare them directly:
+Second, the small nsp11 ORF has very low diversity by both metrics. This gene is encoded by a region of the genome in which an essential programmed ribosome slip occurs, and may be under strong purifying selection. Finally, while there is some consensus between the two measures, they're not the same. To explore this further we made a scatter plot to compare them directly:
 
 ![Figure 5.2][Figure5.2]
 
-The plot shows data for all samples (with at least 50x coverage), as well as samples from each center we have reads from. This is to ensure that the intra-patient results we get are not entirely biases associated with differences in library preparation and sequencing methodologies. 
+The plot shows data for all samples (with at least 50x coverage), as well as samples from each center we have reads from. This is to ensure that the intra-patient results we get are not entirely biases associated with differences in library preparation and sequencing methodologies.
 
 Intra-population diversity is likely artificially high because it is affected more easily by sequencing errors than consensus-based inter-population diversity measurements- thus comparing the absolute values of the two directly remains difficult. It is also possible that our intra-population diversity measurements capture more rare alleles.
 
@@ -119,11 +119,11 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 
 ## Conclusions
 
-* Different methodologies have a strong impact on measurements of intra-patient nucleotide diversity in Illumina-sequenced SARS-CoV-2 samples. However, we do see biologically relevant trends in this data despite this, including increased nucleotide diversity at 3rd codon positions, indicating a degree of purifying selection occurring within host.
+* Different methodologies have a strong impact on measurements of intra-patient nucleotide diversity in Illumina-sequenced SARS-CoV-2 samples. However, we do see biologically relevant trends in this data despite this, including increased nucleotide diversity at 3rd codon positions, that the highest nucleotide diversity was measured at untranslated regions, and that there is a general consensus with data from inter-patient diversity. This indicates a degree of purifying selection occurring within host.
 
-* The gene encoding nsp11 (non-structural protein 11) may be under strong purifying selection due to its both low intra- and inter-patient nucleotide diversity.
+* The gene encoding nsp11 (non-structural protein 11) may be under strong purifying selection due to its both low intra- and inter-patient nucleotide diversity. This may be because it plays a yet-unknown essential function in the viral life-cycle, or because it is encoded by the region of the genome in which an essential programmed ribosomal slip occurs.
 
-* ORF8 may be under relaxed purifying selection due to its high inter- and intra- nucleotide diversity. .
+* ORF8 and ORF10 may be under relaxed purifying selection or diversifying selection due to their high inter- and intra- nucleotide diversity.
 
 # Data availability
 
