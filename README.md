@@ -50,13 +50,12 @@ The variation among individuals in single host population is referred to as **in
 
 To analyze inter-patient variation, we downloaded publicly available SARS-CoV-2 genomes, processed and filtered them, and generated a multiple sequence alignment. Details can be found in the [Methods](#Methods-1) second, and the genomes and alignment can be downloaded from the [Data availability](#Data-availability-1) section.
 
-After genome alignment, the following cites and genes have the highest [nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) in the alignment:
+After genome alignment, we can visualize genetic diversity across the genome:
 
 ![interFigure1][interFigure1]
 
-The figure on the right shows that some positions along the genome are very conserved (low nucleotide diversity), and that other sites are much more variable. Sites could be variable because there's a lower selective cost to mutating them (genetic drift) or because there's a selective advantage to mutating them.
+Top: nucleotide diversity averaged per locus. We see high nucleotide diversity in non-coding regions, and on the top right we zoom into protein coding ORFs. We see the highest nucleotide diversity for protein products in ORF8. Bottom: nucleotide diversity plotted across the entire genome.
 
-The first on the left shows that nucleotide diversity varies greatly between the different proteins produced by the genome. Proteins with the name "nsp" are "non-structural proteins" that make up the RNA-depended RNA polymerase and the rest of the replisome. The "step_loop" regions and the protein "nsp11" have much higher nucleotide diversity than other regions, and the spike protein "S" (a common vaccine target) has relatively low nucleotide diversity.  
 
 ## Intra-patient SARS-CoV-2 nucleotide diversity
 
