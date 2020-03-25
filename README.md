@@ -4,10 +4,6 @@ The purpose of this GitHub page is to share data, analyses, and results related 
 
 This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crits-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
 
-## [Summary](#Summary-1)
-
-An overview of our results and links to quickly download some of the data parsed and generated during this study, including a sequence alignment of publicly available genomes on NCBI, locations of genomic SNPs, a table of gene annotations, and a table SRA run locations of raw reads.
-
 ## [Results](#Results-1)
 
 Analysis based on comparing the covid19 genomes assembled from different patients (interpatient variation) and based on comparing the viral genetic diversity found within single individuals during infection (intrapatient variation).
@@ -25,10 +21,6 @@ Detailed methods on how analysis was performed.
 This work completely depends on the scientists and universities that originally sequenced these genomes and made their data publicly available.
 
 Note: Intrapatient analyses require access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a consensus viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in covid-19 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
-
-# Summary
-
-This will be filled in last
 
 # Results
 
@@ -141,8 +133,6 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 [interpatient_nucleotide_diversity]: data/interpatient/nucleotide_diversity.txt
 [interpatient_snps]: data/interpatient/interpatient_snps.txt
 
-
-
 ## Raw data
 
 * [NCBI_genomes][NCBI_genomes] - Fasta file of genomes used in this study
@@ -150,7 +140,6 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 * [genome_alignment][genome_alignment] - Alignment of COVID-19 genomes used in this study
 
 ## Datatables
-
 
 ### Reference genome annotation
 
@@ -173,6 +162,22 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 * [interpatient_snps][interpatient_snps] - Describes the position, nucleotides, and frequencies of each substitution across NCBI genomes.
 
 ## Data analysis notebooks
+
+[interpatient_pi.ipynb]: notebooks/interpatient_pi.ipynb
+[interpatient_snps.ipynb]: notebooks/interpatient_snps.ipynb
+
+[intrapatient_loadInStrain.ipynb]: notebooks/Covid_3_loadInStrain_4.ipynb
+[intrapatient_analyzeData.ipynb]: notebooks/Covid_4_analyze_1_microdiversity_3.ipynb
+
+The following are links to Jupyter Notebooks in which data analysis occurred
+
+* [interpatient_pi.ipynb][interpatient_pi.ipynb] - Calculating inter-patient nucleotide diversity values
+
+* [interpatient_snps.ipynb][interpatient_snps.ipynb] - Calculating a table of substitution in inter-patient data
+
+* [intrapatient_loadInStrain.ipynb][intrapatient_loadInStrain.ipynb] - Loading inStrian values for intra-patient analysis
+
+* [intrapatient_analyzeData.ipynb][intrapatient_analyzeData.ipynb] - Data analysis for intra-patient data
 
 # Methods
 
@@ -293,14 +298,7 @@ inStrain profile /home/mattolm/user_data/Covid_19/inStrain/mapping/NC_045512.2.f
 
 ### Processing inStrain results
 
-Here's how I did that with links to jupyter notebooks. Include all that weird genes stuff.
-
-
-
-
-
-
-
+See Jupyter Notebooks linked above for details on how inStrain results were processed to make figures.
 
 # Citations and acknowledgements
 
