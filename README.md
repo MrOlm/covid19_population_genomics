@@ -91,6 +91,8 @@ For each set of reads analyzed we ranked each annotation by its intra-patient nu
 
 [A second plot in which coverage is plotted along with nucleotide diversity][Figure4.2] is available as well to asses it as a potential confounding factor.
 
+**Data for filtered SNVs that may represent real intrapatient biological variation within these samples are In `./data/datatables/intrapatient/highquality_snps*.txt`, with a separate text file for a respective BioProject.**
+
 ## Comparison of intra- and inter- patient diversity
 
 We first compared intra- and inter- nucleotide diversity in a rank-based manner, as described above:
@@ -126,6 +128,8 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 [SRA_metadata]: data/datatables/intrapatient/SRA_metadata_v1.csv
 [COVID_genome_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
 [COVID_positional_coverage]: data/datatables/intrapatient/COVID_positional_coverage_v2.csv.gz
+[Intrapatient SNVs]: data/datatables/intrapatient/high_quality_snps1.tsv
+[Intrapatient SNVs]: data/datatables/intrapatient/high_quality_snps2.tsv
 
 [COVID_genes_table]: data/reference_genome/COVID_genes_table_v2.tsv
 [COVID_genes_positional]: data/reference_genome/COVID_genes_positional_v2.csv
