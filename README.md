@@ -66,6 +66,8 @@ The first on the left shows that nucleotide diversity varies greatly between the
 [Figure3]: results/CodonMicrodiversity_min_50_v2.png
 [Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
 [Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
+[Figure4.2]: GeneMicrodiversity_RankOrder_Coverage_v2.png
+[Figure5]: GeneMicrodiversity_RankOrder_interIntra_v2.png
 
 ### Effect of sequencing protocol on resulting reads
 
@@ -73,13 +75,13 @@ The reads from the SRA were prepared using a number of different RNA extraction 
 
 ![Figure 1][Figure1]
 
-The figure shows that the sequencing protocol does have an impact on metrics such as nucleotide diversity and coverage standard deviation, but it is difficult to disentangle the effects of the different variables. Overall it does not look like any particular bias has a systemic bias associated with it.
+The figure shows that the sequencing protocol does have an impact on metrics such as nucleotide diversity and coverage standard deviation, but it is difficult to disentangle the effects of the different variables. Overall it does not look like any particular method has a systemic bias associated with it.
 
 We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucleotide diversity distribution][Figure2.2]. This data led us to conclude that ~1000x coverage is needed for a smooth nucleotide diversity distribution, and that ~50x coverage is needed for a smooth coverage distribution. Going forward we restricted our analysis primarily to the 24 samples that have >= 50x coverage overall.
 
-### Nucleotide diversity analysis
+### Intra-patient nucleotide diversity
 
-To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a [measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and every read/position in the alignment will be considered.
+To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a previously established [measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and allowing consideration of every read/position in the read mapping.
 
 As a check to ensure everything is working correctly, we compared the nucleotide diversity of each codon position:
 
@@ -93,9 +95,13 @@ We next looked at the overall microdiversity of each gene in the genome:
 
 ![Figure 4][Figure4]
 
+For each set of reads analyzed we ranked each annotation by its intra-patient nucleotide diversity. The annotation with the lowest nucleotide diversity was ranked 1, second lowest 2, ect., all the way up to 31 (the total number of annotations). We then plotted the average rank of each annotation. Black bars represent 95% confidence intervals.  
+
+[A second plot in which coverage is plotted along with nucleotide diversity][Figure4.2] is available as well to asses it as a potential confounding factor.
+
 ## Comparison of intra- and inter- patient diversity
 
-This will be a nice summary figure on that
+![Figure 5][Figure5]
 
 ## Conclusions
 
