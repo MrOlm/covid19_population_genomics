@@ -14,7 +14,7 @@ Analysis based on comparing the covid19 genomes assembled from different patient
 
 ## [Data availability](#Data-availability-1)
 
-Links to the data generated during this study for others to use
+Links to the data generated during this work for others to use.
 
 ## [Methods](#Methods-1)
 
@@ -34,15 +34,15 @@ This will be filled in last
 
 ## Introduction
 
-As viruses replicate within their hosts during infection, they quickly mutate into genetically diverse populations. This is especially true for viruses with RNA genomes (as is the case with SARS-CoV-2). These populations are usually summarized as a single genome representing the consensus genome from a particular patient, and analysis of **inter-patient variation** (differences among the consensus genomes from different patients) is useful for understanding how the outbreak spreads, and how the virus evolves globally.
+As viruses replicate within their hosts during infection, they mutate and accrue genetic diversity in their populations.  These populations are usually shared as a single genome representing the consensus genome from a particular patient, and analysis of **inter-patient variation** (differences between the consensus genomes from different patients) is useful for understanding how the outbreak spreads, and how the virus evolves globally.
 
-The variation among individuals in single host population is referred to as **intra-patient variation**, intraspecfic variation, or microdiversity. These type of variation is less commonly studied, but analysis of this data has the following potential applications:
+We refer to the variation within a single individual as **intra-patient variation**, intraspecfic variation, or microdiversity. This genetic variation is less commonly studied, but analysis of this data has the following potential applications:
 
-* Identification of the genomic loci least likely to mutate during infection. Could be useful for designing universal primers / probes.
+* Identification of the genomic loci least likely to mutate during infection, which could be useful for designing universal primers / probes.
 
-* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the viral evolutionary pressures and function.
+* Comparison of viral evolution within individuals versus global evolution. This can be useful for understanding how the viral evolutionary pressures and functions.
 
-* Estimation of the number of viral particles acquired to start infection and quantifying genetic diversity transferred during transmission.
+* Estimation of the number of viral particles acquired at the onset of infection and quantifying genetic diversity transferred during transmission.
 
 ## Inter-patient SARS-CoV-2 genome variation
 
@@ -81,7 +81,7 @@ We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucle
 
 ### Intra-patient nucleotide diversity
 
-To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a previously established [measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain, has a several advantages over typical SNP-based analyses, including avoiding SNP-calling thresholds that differ from program to program and allowing consideration of every read/position in the read mapping.
+To investigate which genomic positions have the highest intra-patient diversity (microdiversity), we use a [measure of nucleotide diversity (π)](https://en.wikipedia.org/wiki/Nucleotide_diversity) (Nei and Li 1979). This metric is calculated for each position along the genome using inStrain and can be calculated at all genomic loci. We include all high quality sequenced base pairs in this calculation.
 
 As a check to ensure everything is working correctly, we compared the nucleotide diversity of each codon position:
 
@@ -105,21 +105,25 @@ We first compared intra- and inter- nucleotide diversity in a rank-based manner,
 
 ![Figure 5][Figure5]
 
-Several things jump out here. First, the stem_loop and untranslated regions (3' UTR and 5' UTR) have the highest nucleotide diversity both on an intra-patient and inter-patient level. This makes sense because these regions are not encoded into proteins, and thus are likely subjected to relaxed selective pressures. Second, nsp11 has very low diversity by both metrics. This also makes sense because this is the gene in which an essential programmed ribosome slip happens. It makes sense that mutations in this region would be detrimental, and thus highly selected against, resulting in reduced nucleotide diversity. Finally, while there is some consensus between the two measures, they're not the same. To explore this further we made a scatter plot to compare them directly:
+Several things jump out here. First, the stem_loop and untranslated regions (3' UTR and 5' UTR) have the highest nucleotide diversity both on an intra-patient and inter-patient level. This makes sense because these regions are not encoded into proteins, and thus may be likely subjected to relaxed selective pressures. They are also at the ends of the viral genome, where sequencing errors are most common.
+
+Second, the small nsp11 ORF has very low diversity by both metrics. This gene occurs due to an essential programmed ribosome slip, and may be under strong purifying selection. Finally, while there is some consensus between the two measures, they're not the same. To explore this further we made a scatter plot to compare them directly:
 
 ![Figure 5.2][Figure5.2]
 
-The plot shows data for all samples (with at least 50x coverage), as well as samples from each center we have reads from. This is to ensure that the intra-patient results we get are not simply biases associated with differences in library preparation and sequencing methodologies.
+The plot shows data for all samples (with at least 50x coverage), as well as samples from each center we have reads from. This is to ensure that the intra-patient results we get are not entirely biases associated with differences in library preparation and sequencing methodologies. 
 
-The results are generally consistent between sequencing centers. Intra-patient diversity is higher than Intra-patient diversity overall. This makes sense both because intra-patient diversity is effecting by random sequencing errors, and because these samples have much higher coverage (some over 10000x) letting us see extremely low frequency mutations. Most genes and proteins fall into a cluster, with the exception of a few, most notably ORF8 and ORF10. These genes tend to more to the upper right in these graphs, meaning that they have higher intra- and inter- patient nucleotide diversity. This is especially interesting because ORF8 is one of the open reading frames that is most change in the SARS-CoV genome during its emergence in humans ([Muth et al. 2018](https://www.nature.com/articles/s41598-018-33487-8), [Su. et al. 2020](https://www.biorxiv.org/content/10.1101/2020.03.11.987222v1.full))
+Intra-population diversity is likely artificially high because it is affected more easily by sequencing errors than consensus-based inter-population diversity measurements- thus comparing the absolute values of the two directly remains difficult. It is also possible that our intra-population diversity measurements capture more rare alleles.
+
+ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have higher intra- and inter- patient nucleotide diversity. This is especially interesting because ORF8 has seen deletions during its emergence in humans ([Muth et al. 2018](https://www.nature.com/articles/s41598-018-33487-8), [Su. et al. 2020](https://www.biorxiv.org/content/10.1101/2020.03.11.987222v1.full)). High nucleotide diversity in ORF8 may mean it is under relaxed purifying selection in humans.
 
 ## Conclusions
 
-* Intra-patient nucleotide diversity is able to measured from Illumina-sequenced SARS-CoV-2 samples prepared using a variety of methodologies. Evidence that this data is robust includes increased nucleotide diversity at the 3rd codon position, that the highest nucleotide diversity was measured at untranslated regions, and that there is a general consensus with data from intra-patient diversity.
+* Different methodologies have a strong impact on measurements of intra-patient nucleotide diversity in Illumina-sequenced SARS-CoV-2 samples. However, we do see biologically relevant trends in this data despite this, including increased nucleotide diversity at 3rd codon positions, indicating a degree of purifying selection occurring within host.
 
-* The gene encoding nsp11 (non-structural protein 11) may have the lowest intra-patient nucleotide diversity because it plays a yet-unknown essential function in the viral life-cycle, or because it is encoded by the region of the genome in which an essential programmed ribosomal slip occurs.
+* The gene encoding nsp11 (non-structural protein 11) may be under strong purifying selection due to its both low intra- and inter-patient nucleotide diversity.
 
-* ORF8 may have the abnormally high inter- and intra- nucleotide diversity because it is known to be involved in host adaptation. It may be beneficial to have a diversity of ORF8 mutations to gain access to new human cell cells. It is unclear why ORF10 also has higher nucleotide diversity.
+* ORF8 may be under relaxed purifying selection due to its high inter- and intra- nucleotide diversity. .
 
 # Data availability
 
