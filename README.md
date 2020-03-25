@@ -111,15 +111,15 @@ Several things jump out here. First, the stem_loop and untranslated regions (3' 
 
 The plot shows data for all samples (with at least 50x coverage), as well as samples from each center we have reads from. This is to ensure that the intra-patient results we get are not simply biases associated with differences in library preparation and sequencing methodologies.
 
+The results are generally consistent between sequencing centers. Intra-patient diversity is higher than Intra-patient diversity overall. This makes sense both because intra-patient diversity is effecting by random sequencing errors, and because these samples have much higher coverage (some over 10000x) letting us see extremely low frequency mutations. Most genes and proteins fall into a cluster, with the exception of a few, most notably ORF8 and ORF10. These genes tend to more to the upper right in these graphs, meaning that they have higher intra- and inter- patient nucleotide diversity. This is especially interesting because ORF8 is one of the open reading frames that is most change in the SARS-CoV genome during its emergence in humans ([Muth et al. 2018](https://www.nature.com/articles/s41598-018-33487-8), [Su. et al. 2020](https://www.biorxiv.org/content/10.1101/2020.03.11.987222v1.full))
+
 ## Conclusions
 
-A couple of bullet points
+* Intra-patient nucleotide diversity is able to measured from Illumina-sequenced SARS-CoV-2 samples prepared using a variety of methodologies. Evidence that this data is robust includes increased nucleotide diversity at the 3rd codon position, that the highest nucleotide diversity was measured at untranslated regions, and that there is a general consensus with data from intra-patient diversity.
 
+* The gene encoding nsp11 (non-structural protein 11) may have the lowest intra-patient nucleotide diversity because it plays a yet-unknown essential function in the viral life-cycle, or because it is encoded by the region of the genome in which an essential programmed ribosomal slip occurs.
 
-
-
-
-
+* ORF8 may have the abnormally high inter- and intra- nucleotide diversity because it is known to be involved in host adaptation. It may be beneficial to have a diversity of ORF8 mutations to gain access to new human cell cells. It is unclear why ORF10 also has higher nucleotide diversity.
 
 # Data availability
 
