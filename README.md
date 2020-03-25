@@ -103,7 +103,7 @@ For each set of reads analyzed we ranked each annotation by its intra-patient nu
 
 ![Figure 5][Figure5]
 
-![Figure 5.2][Figure5.2]
+![Figure 5.2][Figure5.2 | width=100]
 
 ## Conclusions
 
