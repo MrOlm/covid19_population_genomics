@@ -66,8 +66,8 @@ The first on the left shows that nucleotide diversity varies greatly between the
 [Figure3]: results/CodonMicrodiversity_min_50_v2.png
 [Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
 [Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
-[Figure4.2]: GeneMicrodiversity_RankOrder_Coverage_v2.png
-[Figure5]: GeneMicrodiversity_RankOrder_interIntra_v2.png
+[Figure4.2]: results/GeneMicrodiversity_RankOrder_Coverage_v2.png
+[Figure5]: results/GeneMicrodiversity_RankOrder_interIntra_v2.png
 
 ### Effect of sequencing protocol on resulting reads
 
