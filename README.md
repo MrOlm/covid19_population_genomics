@@ -1,8 +1,8 @@
 # SARS-CoV-2 viral genomics
 
-The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. **This work is on-going - please feel free to reach out with corrections, additions, or questions.**
+The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. This work is on-going - please feel free to reach out with corrections, additions, or questions.
 
-Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA and selecting the platform "Illumina". This was last performed on **April 2, 2020** and led to the identification of **159 runs, 50 of which have the SARS-CoV-2 at over 50x coverage and 90% breadth**. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)
+**Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA and selecting the platform "Illumina". This was last performed on _April 2, 2020_ and led to the identification of _159 runs, 50 of which have the SARS-CoV-2 at over 50x coverage and 90% breadth_. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)**
 
 This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crits-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
 
