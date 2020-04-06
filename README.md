@@ -56,6 +56,7 @@ Top: nucleotide diversity averaged per locus. We see high nucleotide diversity i
 [Figure4]: results/GeneMicrodiversity_RankOrder_02_04_2020.png
 [Figure5]: results/GeneMicrodiversity_RankOrder_interIntra_02_04_2020.png
 [Figure5.2]: results/GeneMicrodiversity_scatter_interIntra_02_04_2020.png
+[Figure6]: results/SNV_totals_02_04_2020.png
 
 <!-- THE FOLLOWING ARE NOT UP TO DATE -->
 [Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
@@ -93,7 +94,11 @@ For each set of reads analyzed we ranked each annotation by its intra-patient nu
 
 [A second plot in which coverage is plotted along with nucleotide diversity][Figure4.2] is available as well to asses it as a potential confounding factor.
 
-**Data for filtered SNVs that may represent real intrapatient biological variation within these samples are In `./data/datatables/intrapatient/highquality_snps*.txt`, with a separate text file for a respective BioProject.**
+### Intra-patient SNVs
+
+**Progress ongoing; see [Data availability](#Data-availability-1) for raw SNP information**
+
+![Figure 6][Figure6]
 
 ## Comparison of intra- and inter- patient diversity
 
@@ -126,9 +131,11 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 [NCBI_genomes]: data/interpatient/ncbi_mar20.fna
 [genome_alignment]: data/interpatient/mar20_filtered.aln
 
-[SRA_metadata]: data/datatables/intrapatient/SRA_metadata_v1.csv
-[COVID_genome_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
-[COVID_positional_coverage]: data/datatables/intrapatient/COVID_positional_coverage_v2.csv.gz
+[SRA_metadata]: data/intrapatient/02_04_2020_SRA_parsed_info.csv
+[COVID_genome_coverage]: data/intrapatient/COVID_gene_coverage_v2.csv
+[COVID_positional_coverage]: data/intrapatient/COVID_positional_coverage_v2.csv
+[Raw_SNVs]: data/intrapatient/SNPs
+
 [Intrapatient SNVs]: data/datatables/intrapatient/high_quality_snps1.tsv
 [Intrapatient SNVs]: data/datatables/intrapatient/high_quality_snps2.tsv
 
@@ -159,6 +166,8 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 * [COVID_genome_coverage][COVID_genome_coverage] - Genome-wide coverage, breadth, nucleotide diversity, etc. of reads mapping to a COVID-19 reference genome
 
 * [COVID_positional_coverage][COVID_positional_coverage] - Position by position coverage and nucleotide diversity along the genome in sequencing reads
+
+* [Raw_SNVs][Raw_SNVs] - Parsed SNVs called by a number of methods
 
 ### Inter-patient data
 
