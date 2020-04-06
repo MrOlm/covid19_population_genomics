@@ -51,15 +51,17 @@ Top: nucleotide diversity averaged per locus. We see high nucleotide diversity i
 
 ## Intra-patient SARS-CoV-2 nucleotide diversity
 
-[Figure1]: results/QC_boxplots_v3.png
+[Figure1]: results/QC_boxplots_02_04_2020.png
+[Figure3]: results/CodonNormMicrodiversity_min_50_02_04_2020.png
+[Figure4]: results/GeneMicrodiversity_RankOrder_02_04_2020.png
+[Figure5]: results/GeneMicrodiversity_RankOrder_interIntra_02_04_2020.png
+[Figure5.2]: results/GeneMicrodiversity_scatter_interIntra_02_04_2020.png
+
+<!-- THE FOLLOWING ARE NOT UP TO DATE -->
 [Figure2.1]: results/CoverageDistrubution_Center_ID_v2.png
 [Figure2.2]: results/MicrodiversityDistrubution_Center_ID_v2.png
-[Figure3]: results/CodonMicrodiversity_min_50_v2.png
 [Figure3.2]: results/CodonMicrodiversity_min_1000_v2.png
-[Figure4]: results/GeneMicrodiversity_RankOrder_v2.png
 [Figure4.2]: results/GeneMicrodiversity_RankOrder_Coverage_v2.png
-[Figure5]: results/GeneMicrodiversity_RankOrder_interIntra_v2.png
-[Figure5.2]: results/GeneMicrodiversity_scatter_interIntra_v3.png
 
 ### Effect of sequencing protocol on resulting reads
 
@@ -69,7 +71,7 @@ The reads from the SRA were prepared using a number of different RNA extraction 
 
 The figure shows that the sequencing protocol does have an impact on metrics such as nucleotide diversity and coverage standard deviation, but it is difficult to disentangle the effects of the different variables. Overall it does not look like any particular method has a systemic bias associated with it.
 
-We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucleotide diversity distribution][Figure2.2]. This data led us to conclude that ~1000x coverage is needed for a smooth nucleotide diversity distribution, and that ~50x coverage is needed for a smooth coverage distribution. Going forward we restricted our analysis primarily to the 24 samples that have >= 50x coverage overall.
+We also plotted out the nucleotide [coverage distribution][Figure2.1] and [nucleotide diversity distribution][Figure2.2]. This data led us to conclude that ~1000x coverage is needed for a smooth nucleotide diversity distribution, and that ~50x coverage is needed for a smooth coverage distribution. Going forward we restricted our analysis primarily to the samples that have >= 50x coverage overall.
 
 ### Intra-patient nucleotide diversity
 
@@ -123,7 +125,6 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 
 [NCBI_genomes]: data/interpatient/ncbi_mar20.fna
 [genome_alignment]: data/interpatient/mar20_filtered.aln
-
 
 [SRA_metadata]: data/datatables/intrapatient/SRA_metadata_v1.csv
 [COVID_genome_coverage]: data/datatables/intrapatient/COVID_genome_coverage_v2.csv
