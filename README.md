@@ -2,6 +2,8 @@
 
 The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. **This work is on-going - please feel free to reach out with corrections, additions, or questions.**
 
+Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA and selecting the platform "Illumina". This was last performed on **April 2, 2020** and led to the identification of **159 runs, 50 of which have the SARS-CoV-2 at over 50x coverage and 90% breadth**. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)
+
 This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crits-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
 
 ## [Results](#Results-1)
@@ -23,10 +25,6 @@ This work completely depends on the scientists and universities that originally 
 Note: Intrapatient analyses require access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a consensus viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in SARS-CoV-2 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
 # Results
-
-## Data Overview
-
-Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA and selecting the platform "Illumina". This was last performed on **April 2, 2020** and led to the identification of **159 runs, 50 of which have the SARS-CoV-2 at over 50x coverage and 90% breadth**. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)
 
 ## Introduction
 
