@@ -133,7 +133,7 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 
 [SRA_metadata]: data/intrapatient/02_04_2020_SRA_parsed_info.csv
 [COVID_genome_coverage]: data/intrapatient/COVID_gene_coverage_v2.csv
-[COVID_positional_coverage]: data/intrapatient/COVID_positional_coverage_v2.csv
+[COVID_positional_coverage]: data/intrapatient/COVID_positional_coverage_v2.csv.gz
 [Raw_SNVs]: data/intrapatient/SNPs
 
 [Intrapatient SNVs]: data/datatables/intrapatient/high_quality_snps1.tsv
@@ -159,7 +159,7 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 
 * [COVID_genes_positional][COVID_genes_positional] - Each position in the genome and all associated annotations. Parsed from the [COVID_genes_table][COVID_genes_table]. Providing because parsing is made difficult due to the confusing gene structure
 
-### Inter-patient data
+### Intra-patient data
 
 * [SRA_metadata][SRA_metadata] - Metadata of the SRA samples used for intra-patient analysis
 
@@ -180,8 +180,10 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 [interpatient_pi.ipynb]: notebooks/interpatient_pi.ipynb
 [interpatient_snps.ipynb]: notebooks/interpatient_snps.ipynb
 
-[intrapatient_loadInStrain.ipynb]: notebooks/Covid_3_loadInStrain_4.ipynb
-[intrapatient_analyzeData.ipynb]: notebooks/Covid_4_analyze_1_microdiversity_3.ipynb
+[intrapatient_loadInStrain.ipynb]: notebooks/Covid_3_loadInStrain_5_04022020.ipynb
+[intrapatient_processSamples.ipynb]: notebooks/Covid_5_pipeline_2_04022020.ipynb
+[intrapatient_analyzeData.ipynb]: notebooks/Covid_4_analyze_1_microdiversity_5_04022020.ipynb
+[intrapatient_SNPs.ipynb]: notebooks/Covid_4_analyze_2_SNVs_2_04022020.ipynb
 
 The following are links to Jupyter Notebooks in which data analysis occurred
 
@@ -189,9 +191,13 @@ The following are links to Jupyter Notebooks in which data analysis occurred
 
 * [interpatient_snps.ipynb][interpatient_snps.ipynb] - Calculating a table of substitution in inter-patient data
 
+* [intrapatient_processSamples.ipynb][intrapatient_processSamples.ipynb] - Pipeline to download and process data
+
 * [intrapatient_loadInStrain.ipynb][intrapatient_loadInStrain.ipynb] - Loading inStrian values for intra-patient analysis
 
 * [intrapatient_analyzeData.ipynb][intrapatient_analyzeData.ipynb] - Data analysis for intra-patient data
+
+* [intrapatient_SNPs.ipynb][intrapatient_SNPs.ipynb] - Calling intrapatient SNPs
 
 # Methods
 
