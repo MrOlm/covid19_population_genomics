@@ -24,6 +24,10 @@ Note: Intrapatient analyses require access to the raw sequencing reads generated
 
 # Results
 
+## Data Overview
+
+Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA and selecting the platform "Illumina". This was last performed on **April 2, 2020** and led to the identification of **159 runs, 50 of which have the SARS-CoV-2 at over 50x coverage and 90% breadth**. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)
+
 ## Introduction
 
 As viruses replicate within their hosts during infection, they mutate and accrue genetic diversity in their populations.  These populations are usually shared as a single genome representing the consensus genome from a particular patient, and analysis of **inter-patient variation** (differences between the consensus genomes from different patients) is useful for understanding how the outbreak spreads, and how the virus evolves globally.
@@ -255,7 +259,7 @@ A typical pipeline for SARS-CoV-2 genome sequencing involves first generating a 
 
 ### Downloading and processing raw reads
 
-Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA, and selecting the platform "Illumina". This was last performed on **3/17/2020** and led to the identification of **36** runs. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D). This information was downloaded into a .csv file by clicking "Send to:" -> Choose Destination: "File" -> Format "RunInfo" -> "Create File".
+Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA, and selecting the platform "Illumina". This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D). This information was downloaded into a .csv file by clicking "Send to:" -> Choose Destination: "File" -> Format "RunInfo" -> "Create File".
 
 SRA files were downloaded using the URLs in the above file using the command:
 
