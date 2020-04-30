@@ -2,7 +2,7 @@
 
 The purpose of this GitHub page is to share data, analyses, and results related to the analysis of genomic variation in the SARS-CoV-2 genome. This work is on-going - please feel free to reach out with corrections, additions, or questions.
 
-**Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA and selecting the platform "Illumina". This was last performed on _April 2, 2020_ and led to the identification of _159 runs, 50 of which have the SARS-CoV-2 at over 50x coverage and 90% breadth_. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)**
+**Raw reads were identified by searching the term "SARS-CoV-2" in the NCBI SRA and selecting the platform "Illumina". This was last performed on _April 27, 2020_ and led to the identification of _453 runs, 401 of which have the SARS-CoV-2 at over 50x coverage and 90% breadth_. This can be accessed at the following [URL](https://www.ncbi.nlm.nih.gov/sra/?term=(%22Severe+acute+respiratory+syndrome+coronavirus+2%22%5BOrganism%5D+OR+SARS-CoV-2%5BAll+Fields%5D)+AND+%22platform+illumina%22%5BProperties%5D)**
 
 This analysis was performed primarily by Matt Olm (<mattolm@stanford.edu>) in Justin Sonnenburg's lab at Stanford University and Alex Crits-Christoph (<crits-christoph@berkeley.edu>) in Jill Banfield's lab at University of California, Berkeley and analysis is broken up into the following major sections:
 
@@ -25,6 +25,8 @@ This work completely depends on the scientists and universities that originally 
 Note: Intrapatient analyses require access to the raw sequencing reads generated when sequencing covid19 genomes. Usually these reads are used to generate a consensus viral genome, the genome is deposited into a public database, and the raw reads are never uploaded publicly. **If you are involved in SARS-CoV-2 genome sequencing efforts, please consider uploading the raw reads as well so that analyses like this can continue.**
 
 # Results
+
+**Note: Some of the figures are not completely up to date with the most recent genome set**
 
 ## Introduction
 
@@ -53,6 +55,7 @@ Top: nucleotide diversity averaged per locus. We see high nucleotide diversity i
 
 ## Intra-patient SARS-CoV-2 nucleotide diversity
 
+[Figure0]: results/NumberOfSamples_04272020.png
 [Figure1]: results/QC_boxplots_02_04_2020.png
 [Figure3]: results/CodonNormMicrodiversity_min_50_02_04_2020.png
 [Figure4]: results/GeneMicrodiversity_RankOrder_02_04_2020.png
@@ -67,6 +70,10 @@ Top: nucleotide diversity averaged per locus. We see high nucleotide diversity i
 [Figure4.2]: results/GeneMicrodiversity_RankOrder_Coverage_v2.png
 
 ### Effect of sequencing protocol on resulting reads
+
+Here is a plot of the total number of read sets in the SRA over time
+
+![Figure 0][Figure0]
 
 The reads from the SRA were prepared using a number of different RNA extraction methods, library preparation methods, and DNA sequencing machines. To identify potential biases associated with different methods, we plotted the distribution of mapping quality metrics as compared to library preparation metadata (as retrieved from the SRA).
 
@@ -133,16 +140,16 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 [NCBI_genomes]: data/interpatient/ncbi_mar20.fna
 [genome_alignment]: data/interpatient/mar20_filtered.aln
 
-[SRA_metadata]: data/intrapatient/02_04_2020_SRA_parsed_info.csv
-[COVID_genome_coverage]: data/intrapatient/COVID_gene_coverage_v2.csv
+[SRA_metadata]: data/intrapatient/04202020_SRA_parsed_info_v2.csv
+[COVID_genome_coverage]: data/intrapatient/COVID_genome_coverage.csv
 [COVID_positional_coverage]: data/intrapatient/COVID_positional_coverage_v2.csv.gz
 [Raw_SNVs]: data/intrapatient/SNPs
 
 [Intrapatient SNVs]: data/datatables/intrapatient/high_quality_snps1.tsv
 [Intrapatient SNVs]: data/datatables/intrapatient/high_quality_snps2.tsv
 
-[COVID_genes_table]: data/reference_genome/COVID_genes_table_v2.tsv
-[COVID_genes_positional]: data/reference_genome/COVID_genes_positional_v2.csv
+[COVID_genes_table]: data/intrapatient/COVID_genes_table_v4.csv
+[COVID_genes_positional]: data/intrapatient/COVID_genes_positional_v4.csv
 
 [interpatient_nucleotide_diversity]: data/interpatient/nucleotide_diversity.txt
 [interpatient_snps]: data/interpatient/interpatient_snps.txt
@@ -182,10 +189,11 @@ ORF8 and ORF10 genes tend to be outliers in these metrics, as that they have hig
 [interpatient_pi.ipynb]: notebooks/interpatient_pi.ipynb
 [interpatient_snps.ipynb]: notebooks/interpatient_snps.ipynb
 
-[intrapatient_loadInStrain.ipynb]: notebooks/Covid_3_loadInStrain_5_04022020.ipynb
-[intrapatient_processSamples.ipynb]: notebooks/Covid_5_pipeline_2_04022020.ipynb
-[intrapatient_analyzeData.ipynb]: notebooks/Covid_4_analyze_1_microdiversity_5_04022020.ipynb
+[intrapatient_loadInStrain.ipynb]: notebooks/Covid_3_loadInStrain_5_04202020.ipynb
+[intrapatient_processSamples.ipynb]: notebooks/Covid_5_pipeline_3_04202020.ipynb
+[intrapatient_analyzeData.ipynb]: notebooks/Covid_4_analyze_1_microdiversity_6_04202020.ipynb
 [intrapatient_SNPs.ipynb]: notebooks/Covid_4_analyze_2_SNVs_2_04022020.ipynb
+[annotate_genes.ipynb]: notebooks/Covid_1_annotateGenes_1_v4.ipynb
 
 The following are links to Jupyter Notebooks in which data analysis occurred
 
@@ -200,6 +208,8 @@ The following are links to Jupyter Notebooks in which data analysis occurred
 * [intrapatient_analyzeData.ipynb][intrapatient_analyzeData.ipynb] - Data analysis for intra-patient data
 
 * [intrapatient_SNPs.ipynb][intrapatient_SNPs.ipynb] - Calling intrapatient SNPs
+
+* [annotate_genes.ipynb][annotate_genes.ipynb] - Annotating the genome on a base-by-base level with gene annotations
 
 # Methods
 
